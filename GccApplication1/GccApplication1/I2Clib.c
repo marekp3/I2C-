@@ -1,6 +1,6 @@
 
 #include <avr/io.h>
-#define I2CBUSCLOCK 400000
+#define I2CBUSCLOCK 200000
 #define F_CPU 8000000UL
 #define I2C_StartError 1
 #include <util/twi.h>

@@ -3,31 +3,31 @@ GccApplication1.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000001be  00000000  00000000  00000094  2**1
+  0 .text         000001c2  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000000a  00800060  000001be  00000252  2**0
+  1 .data         0000000a  00800060  000001c2  00000256  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000001  0080006a  0080006a  0000025c  2**0
+  2 .bss          00000001  0080006a  0080006a  00000260  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  0000025c  2**0
+  3 .comment      00000030  00000000  00000000  00000260  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000028c  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000290  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000088  00000000  00000000  000002c8  2**0
+  5 .debug_aranges 00000088  00000000  00000000  000002cc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000009d7  00000000  00000000  00000350  2**0
+  6 .debug_info   00000a20  00000000  00000000  00000354  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000072e  00000000  00000000  00000d27  2**0
+  7 .debug_abbrev 0000073d  00000000  00000000  00000d74  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000487  00000000  00000000  00001455  2**0
+  8 .debug_line   00000491  00000000  00000000  000014b1  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000000d8  00000000  00000000  000018dc  2**2
+  9 .debug_frame  000000d8  00000000  00000000  00001944  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000003ee  00000000  00000000  000019b4  2**0
+ 10 .debug_str    00000412  00000000  00000000  00001a1c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000189  00000000  00000000  00001da2  2**0
+ 11 .debug_loc    000001dc  00000000  00000000  00001e2e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000068  00000000  00000000  00001f2b  2**0
+ 12 .debug_ranges 00000068  00000000  00000000  0000200a  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,7 +65,7 @@ Disassembly of section .text:
   32:	10 e0       	ldi	r17, 0x00	; 0
   34:	a0 e6       	ldi	r26, 0x60	; 96
   36:	b0 e0       	ldi	r27, 0x00	; 0
-  38:	ee eb       	ldi	r30, 0xBE	; 190
+  38:	e2 ec       	ldi	r30, 0xC2	; 194
   3a:	f1 e0       	ldi	r31, 0x01	; 1
   3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
   3e:	05 90       	lpm	r0, Z+
@@ -88,7 +88,7 @@ Disassembly of section .text:
   54:	b2 07       	cpc	r27, r18
   56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
   58:	65 d0       	rcall	.+202    	; 0x124 <main>
-  5a:	af c0       	rjmp	.+350    	; 0x1ba <_exit>
+  5a:	b1 c0       	rjmp	.+354    	; 0x1be <_exit>
 
 0000005c <__bad_interrupt>:
   5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
@@ -107,7 +107,7 @@ Disassembly of section .text:
   66:	78 e3       	ldi	r23, 0x38	; 56
   68:	81 e0       	ldi	r24, 0x01	; 1
   6a:	90 e0       	ldi	r25, 0x00	; 0
-  6c:	84 d0       	rcall	.+264    	; 0x176 <__udivmodsi4>
+  6c:	86 d0       	rcall	.+268    	; 0x17a <__udivmodsi4>
   6e:	da 01       	movw	r26, r20
   70:	c9 01       	movw	r24, r18
   72:	40 97       	sbiw	r24, 0x10	; 16
@@ -144,8 +144,8 @@ Disassembly of section .text:
 000000ae <I2C_Init>:
   ae:	84 e4       	ldi	r24, 0x44	; 68
   b0:	86 bf       	out	0x36, r24	; 54
-  b2:	60 ea       	ldi	r22, 0xA0	; 160
-  b4:	7f e0       	ldi	r23, 0x0F	; 15
+  b2:	60 ed       	ldi	r22, 0xD0	; 208
+  b4:	77 e0       	ldi	r23, 0x07	; 7
   b6:	80 e0       	ldi	r24, 0x00	; 0
   b8:	90 e0       	ldi	r25, 0x00	; 0
   ba:	d1 df       	rcall	.-94     	; 0x5e <I2C_SetBusSpeed>
@@ -272,18 +272,18 @@ int main(void)
  13c:	e1 f7       	brne	.-8      	; 0x136 <main+0x12>
  13e:	00 c0       	rjmp	.+0      	; 0x140 <main+0x1c>
  140:	00 00       	nop
-	uint8_t address = 0x68;
-	static uint8_t DIGITS[10] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67};
-	while(1)
-    {
-		
+			I2C_SendByte(0x19);
+			
+			first=1;
+			
+		}*/
 		I2C_Start();
  142:	c1 df       	rcall	.-126    	; 0xc6 <I2C_Start>
 		I2C_SendAddr((address<<1) | 0b00000000);
  144:	80 ed       	ldi	r24, 0xD0	; 208
  146:	ca df       	rcall	.-108    	; 0xdc <I2C_SendAddr>
-		I2C_SendByte(0x00);
- 148:	80 e0       	ldi	r24, 0x00	; 0
+		I2C_SendByte(0x01);
+ 148:	81 e0       	ldi	r24, 0x01	; 1
  14a:	e0 df       	rcall	.-64     	; 0x10c <I2C_SendByte>
 		I2C_Start();
  14c:	bc df       	rcall	.-136    	; 0xc6 <I2C_Start>
@@ -292,68 +292,74 @@ int main(void)
  150:	c5 df       	rcall	.-118    	; 0xdc <I2C_SendAddr>
 		cos = I2C_ReceiveData_ACK();
  152:	d0 df       	rcall	.-96     	; 0xf4 <I2C_ReceiveData_ACK>
-		cos = cos & 0b00001111;
-		PORTD=DIGITS[cos];
- 154:	8f 70       	andi	r24, 0x0F	; 15
- 156:	e8 2f       	mov	r30, r24
- 158:	f0 e0       	ldi	r31, 0x00	; 0
- 15a:	e0 5a       	subi	r30, 0xA0	; 160
- 15c:	ff 4f       	sbci	r31, 0xFF	; 255
- 15e:	80 81       	ld	r24, Z
- 160:	82 bb       	out	0x12, r24	; 18
- 162:	2f e7       	ldi	r18, 0x7F	; 127
- 164:	88 e3       	ldi	r24, 0x38	; 56
- 166:	91 e0       	ldi	r25, 0x01	; 1
- 168:	21 50       	subi	r18, 0x01	; 1
- 16a:	80 40       	sbci	r24, 0x00	; 0
- 16c:	90 40       	sbci	r25, 0x00	; 0
- 16e:	e1 f7       	brne	.-8      	; 0x168 <main+0x44>
- 170:	00 c0       	rjmp	.+0      	; 0x172 <main+0x4e>
- 172:	00 00       	nop
- 174:	e6 cf       	rjmp	.-52     	; 0x142 <main+0x1e>
+ 154:	c8 2f       	mov	r28, r24
+		minuty = cos & 0b00001111;
+		dminut = (cos & 0b11110000)>>4;
+		cos = I2C_ReceiveData_ACK();
+ 156:	ce df       	rcall	.-100    	; 0xf4 <I2C_ReceiveData_ACK>
+		godziny = cos & 0b00001111;
+		dgodzin = (cos & 0b00110000)>>4;
+		PORTD = DIGITS[minuty];
+ 158:	cf 70       	andi	r28, 0x0F	; 15
+ 15a:	ec 2f       	mov	r30, r28
+ 15c:	f0 e0       	ldi	r31, 0x00	; 0
+ 15e:	e0 5a       	subi	r30, 0xA0	; 160
+ 160:	ff 4f       	sbci	r31, 0xFF	; 255
+ 162:	80 81       	ld	r24, Z
+ 164:	82 bb       	out	0x12, r24	; 18
+ 166:	2f ef       	ldi	r18, 0xFF	; 255
+ 168:	84 e3       	ldi	r24, 0x34	; 52
+ 16a:	9c e0       	ldi	r25, 0x0C	; 12
+ 16c:	21 50       	subi	r18, 0x01	; 1
+ 16e:	80 40       	sbci	r24, 0x00	; 0
+ 170:	90 40       	sbci	r25, 0x00	; 0
+ 172:	e1 f7       	brne	.-8      	; 0x16c <main+0x48>
+ 174:	00 c0       	rjmp	.+0      	; 0x176 <main+0x52>
+ 176:	00 00       	nop
+ 178:	e4 cf       	rjmp	.-56     	; 0x142 <main+0x1e>
 
-00000176 <__udivmodsi4>:
- 176:	a1 e2       	ldi	r26, 0x21	; 33
- 178:	1a 2e       	mov	r1, r26
- 17a:	aa 1b       	sub	r26, r26
- 17c:	bb 1b       	sub	r27, r27
- 17e:	fd 01       	movw	r30, r26
- 180:	0d c0       	rjmp	.+26     	; 0x19c <__udivmodsi4_ep>
+0000017a <__udivmodsi4>:
+ 17a:	a1 e2       	ldi	r26, 0x21	; 33
+ 17c:	1a 2e       	mov	r1, r26
+ 17e:	aa 1b       	sub	r26, r26
+ 180:	bb 1b       	sub	r27, r27
+ 182:	fd 01       	movw	r30, r26
+ 184:	0d c0       	rjmp	.+26     	; 0x1a0 <__udivmodsi4_ep>
 
-00000182 <__udivmodsi4_loop>:
- 182:	aa 1f       	adc	r26, r26
- 184:	bb 1f       	adc	r27, r27
- 186:	ee 1f       	adc	r30, r30
- 188:	ff 1f       	adc	r31, r31
- 18a:	a2 17       	cp	r26, r18
- 18c:	b3 07       	cpc	r27, r19
- 18e:	e4 07       	cpc	r30, r20
- 190:	f5 07       	cpc	r31, r21
- 192:	20 f0       	brcs	.+8      	; 0x19c <__udivmodsi4_ep>
- 194:	a2 1b       	sub	r26, r18
- 196:	b3 0b       	sbc	r27, r19
- 198:	e4 0b       	sbc	r30, r20
- 19a:	f5 0b       	sbc	r31, r21
+00000186 <__udivmodsi4_loop>:
+ 186:	aa 1f       	adc	r26, r26
+ 188:	bb 1f       	adc	r27, r27
+ 18a:	ee 1f       	adc	r30, r30
+ 18c:	ff 1f       	adc	r31, r31
+ 18e:	a2 17       	cp	r26, r18
+ 190:	b3 07       	cpc	r27, r19
+ 192:	e4 07       	cpc	r30, r20
+ 194:	f5 07       	cpc	r31, r21
+ 196:	20 f0       	brcs	.+8      	; 0x1a0 <__udivmodsi4_ep>
+ 198:	a2 1b       	sub	r26, r18
+ 19a:	b3 0b       	sbc	r27, r19
+ 19c:	e4 0b       	sbc	r30, r20
+ 19e:	f5 0b       	sbc	r31, r21
 
-0000019c <__udivmodsi4_ep>:
- 19c:	66 1f       	adc	r22, r22
- 19e:	77 1f       	adc	r23, r23
- 1a0:	88 1f       	adc	r24, r24
- 1a2:	99 1f       	adc	r25, r25
- 1a4:	1a 94       	dec	r1
- 1a6:	69 f7       	brne	.-38     	; 0x182 <__udivmodsi4_loop>
- 1a8:	60 95       	com	r22
- 1aa:	70 95       	com	r23
- 1ac:	80 95       	com	r24
- 1ae:	90 95       	com	r25
- 1b0:	9b 01       	movw	r18, r22
- 1b2:	ac 01       	movw	r20, r24
- 1b4:	bd 01       	movw	r22, r26
- 1b6:	cf 01       	movw	r24, r30
- 1b8:	08 95       	ret
+000001a0 <__udivmodsi4_ep>:
+ 1a0:	66 1f       	adc	r22, r22
+ 1a2:	77 1f       	adc	r23, r23
+ 1a4:	88 1f       	adc	r24, r24
+ 1a6:	99 1f       	adc	r25, r25
+ 1a8:	1a 94       	dec	r1
+ 1aa:	69 f7       	brne	.-38     	; 0x186 <__udivmodsi4_loop>
+ 1ac:	60 95       	com	r22
+ 1ae:	70 95       	com	r23
+ 1b0:	80 95       	com	r24
+ 1b2:	90 95       	com	r25
+ 1b4:	9b 01       	movw	r18, r22
+ 1b6:	ac 01       	movw	r20, r24
+ 1b8:	bd 01       	movw	r22, r26
+ 1ba:	cf 01       	movw	r24, r30
+ 1bc:	08 95       	ret
 
-000001ba <_exit>:
- 1ba:	f8 94       	cli
+000001be <_exit>:
+ 1be:	f8 94       	cli
 
-000001bc <__stop_program>:
- 1bc:	ff cf       	rjmp	.-2      	; 0x1bc <__stop_program>
+000001c0 <__stop_program>:
+ 1c0:	ff cf       	rjmp	.-2      	; 0x1c0 <__stop_program>
